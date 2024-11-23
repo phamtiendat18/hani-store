@@ -1,0 +1,28 @@
+.mySwiper {
+  padding: 1rem;
+}
+.swiper-slide {
+  width: fit-content;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f88cad !important;
+}
+.slick-dots.slick-dots-bottom {
+  bottom: -10px !important;
+}
+
+.slick-dots.slick-dots-bottom li button {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important; /* Làm tròn dot */
+  background: #696969 !important;
+}
+.slick-dots.slick-dots-bottom .slick-active button {
+  background: #ff5959 !important;
+  width: 12px !important;
+  height: 12px !important;
+}
