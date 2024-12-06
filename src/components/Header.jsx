@@ -1,42 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import user from "../assets/images/user.svg";
 import cart from "../assets/images/cart.svg";
 import bell from "../assets/images/bell.svg";
 import info from "../assets/images/info.svg";
+import ao from "../assets/images/ao2.png";
+import avatar from "../assets/images/avatar.png";
+import chanVay from "../assets/images/chan-vay2.png";
+import quan from "../assets/images/quan2.png";
+import vay from "../assets/images/vay.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Input } from "antd";
 const { Search } = Input;
-export default function Header({ page }) {
+export default function Header({ page, namePage, isProd }) {
+  const navigation = useNavigate();
+  const [searchResult, setSearchResult] = useState("");
+  const handleSearch = () => {
+    navigation("/search-results", { state: { key: searchResult } });
+  };
+  const isLogin = localStorage.getItem("isLogin");
+
   return (
     <div>
-      <div className="flex justify-between pr-[115px] pl-[25px] items-center">
+      <div className="flex justify-between pl-[214px] pr-[234px] items-center h-[70px]">
         <Link
-          to={"#"}
+          to={"/"}
           className="flex items-center mb-5 text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0 block w-[14%] text-center"
         >
-          <div className="w-[130px] h-[120px]">
+          <div className="w-[62px]">
             <img src={logo} />
           </div>
         </Link>
-        <div class="w-full max-w-sm min-w-[880px]">
-          <div class="relative mt-2">
+        <div class="w-full max-w-sm min-w-[550px]">
+          <div class="relative">
             <input
               type="text"
-              class="w-full h-[60px] bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-[#FF5959] rounded-[99px] py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              class="w-full h-[41px] bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-[#FF5959] rounded-[99px] py-2 px-10 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              onChange={(e) => setSearchResult(e.target.value)}
             />
 
             <button
-              class="absolute w-[170px] text-[20px] h-[52px] top-1 right-1 flex items-center rounded-[99px] bg-[#FF5959] py-1 px-5 text-center border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              class="absolute w-[170px] text-[20px] h-[33px] top-1 right-1 flex items-center justify-center rounded-[99px] bg-[#FF5959] py-1 px-5 text-center border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              onClick={handleSearch}
             >
               Tìm kiếm
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 fill="currentColor"
-                class="w-8 h-8 ml-1.5"
+                class="w-7 h-7 ml-1.5"
               >
                 <path
                   fill-rule="evenodd"
@@ -47,19 +61,19 @@ export default function Header({ page }) {
             </button>
           </div>
         </div>
-        <div className="flex w-[425px] justify-between">
-          <div className="w-[40px]">
-            <img src={user} alt="" />
-          </div>
-          <div className="w-[40px]">
+        <div className="flex w-[223px] justify-between">
+          <Link to={isLogin ? "/me/account" : "/login"} className="w-[22px]">
+            <img src={isLogin ? avatar : user} alt="" />
+          </Link>
+          <Link to={"/cart"} className="w-[22px]">
             <img src={cart} alt="" />
-          </div>
-          <div className="w-[40px]">
+          </Link>
+          <Link to={"/notification"} className="w-[22px]">
             <img src={bell} alt="" />
-          </div>
-          <div className="w-[40px]">
+          </Link>
+          <Link to={"/help"} className="w-[22px]">
             <img src={info} alt="" />
-          </div>
+          </Link>
         </div>
       </div>
       <div className="flex flex-wrap items-center h-[70px] justify-between bg-[#FFEAEA] px-[150px]">
@@ -67,7 +81,7 @@ export default function Header({ page }) {
           to={"/"}
           className={`${
             page === "home" ? "text-[#FF5959]" : ""
-          } text-gray-600 font-medium block w-[14%] text-[25px] text-center`}
+          } font-medium block w-[14%] text-[20px] text-center`}
         >
           Trang chủ
         </Link>
@@ -75,7 +89,7 @@ export default function Header({ page }) {
           to={"/hot-trend"}
           className={`${
             page === "hot" ? "text-[#FF5959]" : ""
-          } text-gray-600 font-medium block w-[14%] text-[25px] text-center`}
+          } font-medium block w-[14%] text-[20px] text-center`}
         >
           Hot
         </Link>
@@ -83,23 +97,54 @@ export default function Header({ page }) {
           to={"/products"}
           className={`${
             page === "products" ? "text-[#FF5959]" : ""
-          } text-gray-600 font-medium block w-[14%] text-[25px] text-center`}
+          } font-medium block w-[14%] text-[20px] text-center`}
         >
           Sản phẩm
         </Link>
         <Link
-          to={"#"}
-          className=" text-gray-600 font-medium block w-[14%] text-[25px] text-center"
+          to={"/about-us"}
+          className={`${
+            page === "about-us" ? "text-[#FF5959]" : ""
+          } font-medium block w-[14%] text-[20px] text-center`}
         >
           Giới thiệu
         </Link>
         <Link
-          to={"#"}
-          className=" text-gray-600 font-medium block w-[14%] text-[25px] text-center"
+          to={"/blog"}
+          className={`${
+            page === "blog" ? "text-[#FF5959]" : ""
+          } font-medium block w-[14%] text-[20px] text-center`}
         >
           Blog
         </Link>
       </div>
+      <div>
+        <h1 className="text-[18px] font-semibold text-center mt-[26px] mb-[22px]">
+          {namePage}
+        </h1>
+      </div>
+      {isProd && (
+        <div>
+          <div className="mx-[181px] flex justify-between px-[70px] py-[26px] shadow-xl rounded-[50px] border border-[#D7D2D2] mb-[35px]">
+            <Link to={"/products/dress"} className="text-center font-normal">
+              <img src={vay} alt="" className="w-[180px]" />
+              <p className="mt-[14px] text-[18px] font-semibold">Đầm / Váy</p>
+            </Link>
+            <Link to={"/products/t-shirt"} className="text-center font-normal">
+              <img src={ao} alt="" className="w-[180px]" />
+              <p className="mt-[14px] text-[18px] font-semibold">Áo</p>
+            </Link>
+            <Link to={"/products/trouser"} className="text-center font-normal">
+              <img src={quan} alt="" className="w-[180px]" />
+              <p className="mt-[14px] text-[18px] font-semibold">Quần</p>
+            </Link>
+            <Link to={"/products/shirt"} className="text-center font-normal">
+              <img src={chanVay} alt="" className="w-[180px]" />
+              <p className="mt-[14px] text-[18px] font-semibold">Chân váy</p>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

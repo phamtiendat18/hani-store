@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -21,6 +21,8 @@ import Header from "../components/Header";
 import Product from "../components/Product";
 import "./styles.css";
 import { Carousel } from "antd";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -61,6 +63,33 @@ const products = [
 ];
 
 export default function Home() {
+  const [time, setTime] = useState(3600);
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timerId);
+  }, []);
+  const formatTime = (seconds) => {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return (
+      <div className="flex gap-[5px]">
+        <div className="w-[30px] h-[30px] flex items-center justify-center bg-[#FF5959] text-white font-semibold">
+          {String(h).padStart(2, "0")}
+        </div>
+        :
+        <div className="w-[30px] h-[30px] flex items-center justify-center bg-[#FF5959] text-white font-semibold">
+          {String(m).padStart(2, "0")}
+        </div>
+        :
+        <div className="w-[30px] h-[30px] flex items-center justify-center bg-[#FF5959] text-white font-semibold">
+          {String(s).padStart(2, "0")}
+        </div>
+      </div>
+    );
+  };
   return (
     <div>
       <Header page={"home"} />
@@ -81,34 +110,35 @@ export default function Home() {
           <img src={banner5} className="w-full" alt="" />
         </div>
       </Carousel>
-      <div className="mx-[214px] flex justify-between px-[60px] pt-[44px] pb-[36px]">
-        <div className="text-center font-normal">
-          <img src={vay} alt="" />
-          <p className="mt-[34px] text-[30px]">Đầm / Váy</p>
-        </div>
-        <div className="text-center font-normal">
-          <img src={ao} alt="" />
-          <p className="mt-[34px] text-[30px]">Áo</p>
-        </div>
-        <div className="text-center font-normal">
-          <img src={quan} alt="" />
-          <p className="mt-[34px] text-[30px]">Quần</p>
-        </div>
-        <div className="text-center font-normal">
-          <img src={chanVay} alt="" />
-          <p className="mt-[34px] text-[30px]">Chân váy</p>
-        </div>
+      <div className="mx-[181px] flex justify-between px-[70px] py-[26px] shadow-xl rounded-[50px] mt-[40px] border border-[#D7D2D2] mb-[41px]">
+        <Link to={"/products/dress"} className="text-center font-normal">
+          <img src={vay} alt="" className="w-[180px]" />
+          <p className="mt-[14px] text-[18px] font-semibold">Đầm / Váy</p>
+        </Link>
+        <Link to={"/products/t-shirt"} className="text-center font-normal">
+          <img src={ao} alt="" className="w-[180px]" />
+          <p className="mt-[14px] text-[18px] font-semibold">Áo</p>
+        </Link>
+        <Link to={"/products/trouser"} className="text-center font-normal">
+          <img src={quan} alt="" className="w-[180px]" />
+          <p className="mt-[14px] text-[18px] font-semibold">Quần</p>
+        </Link>
+        <Link to={"/products/shirt"} className="text-center font-normal">
+          <img src={chanVay} alt="" className="w-[180px]" />
+          <p className="mt-[14px] text-[18px] font-semibold">Chân váy</p>
+        </Link>
       </div>
       <div className=" mb-[33px] mx-[100px]">
         <div className="mb-[39px]">
-          <div className="flex justify-between items-center">
-            <div className="">
-              <h2 className="uppercase text-[50px] text-black font-semibold">
+          <div className="flex justify-between items-center mb-[10px]">
+            <div className="flex items-center gap-[10px]">
+              <h2 className="uppercase text-[24px] text-black font-semibold">
                 Flash sale
               </h2>
+              <div>{formatTime(time)}</div>
             </div>
             <div>
-              <span className="hover:underline text-[#FF5959] font-bold text-[24px]">
+              <span className="hover:underline text-[#FF5959] font-bold text-[18px]">
                 Xem tất cả &gt;
               </span>
             </div>
@@ -141,14 +171,14 @@ export default function Home() {
           </div>
         </div>
         <div className="mb-[39px]">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-[10px]">
             <div className="">
-              <h2 className="uppercase text-[50px] text-black font-semibold">
+              <h2 className="uppercase text-[24px] text-black font-semibold">
                 Mới về
               </h2>
             </div>
             <div>
-              <span className="hover:underline text-[#FF5959] font-bold text-[24px]">
+              <span className="hover:underline text-[#FF5959] font-bold text-[18px]">
                 Xem tất cả &gt;
               </span>
             </div>
@@ -205,14 +235,14 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-[10px]">
             <div className="">
-              <h2 className="uppercase text-[50px] text-black font-semibold">
-                Best seller
+              <h2 className="uppercase text-[24px] text-black font-semibold">
+                Bán chạy
               </h2>
             </div>
             <div>
-              <span className="hover:underline text-[#FF5959] font-bold text-[24px]">
+              <span className="hover:underline text-[#FF5959] font-bold text-[18px]">
                 Xem tất cả &gt;
               </span>
             </div>
@@ -269,9 +299,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
-        <img src={footer} className="w-full" alt="" />
-      </div>
+      <Footer />
     </div>
   );
 }

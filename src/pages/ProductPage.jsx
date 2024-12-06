@@ -88,35 +88,15 @@ const products = [
     price: "348,000 đ",
     title: "Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên",
   },
-  {
-    image: img1,
-    price: "348,000 đ",
-    title: "Áo sheer tay dài phối viền bèo thắt nơ cổ ",
-  },
-  {
-    image: img4,
-    price: "348,000 đ",
-    title: "Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên",
-  },
-  {
-    image: img3,
-    price: "348,000 đ",
-    title: "Quần ống suông lưng cao dây kéo sau",
-  },
-  {
-    image: img2,
-    price: "348,000 đ",
-    title: "Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên",
-  },
 ];
 
-export default function Hot(props) {
+export default function ProductPage(props) {
   return (
     <div>
       <Header {...props} />
       <div className="mx-[100px]">
         <div className="mb-[39px]">
-          <div className="flex flex-wrap justify-between gap-y-[37px]">
+          <div className="flex flex-wrap justify-between gap-y-[22px]">
             {products.map((item) => (
               <Product {...item} />
             ))}
