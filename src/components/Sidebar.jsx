@@ -4,11 +4,16 @@ import heartIcon from "../assets/images/heartIcon.png";
 import profileCircle from "../assets/images/profileCircle.png";
 import receipt from "../assets/images/receipt.png";
 import avatar from "../assets/images/avatar.png";
+import userFocus from "../assets/images/userFocus.png";
+import heartFocus from "../assets/images/heartFocus.png";
+import receiptFocus from "../assets/images/receiptFocus.png";
 import { useNavigate } from "react-router-dom";
 import { notification } from "antd";
 
 function Sidebar({ activeMenuItem, onMenuItemClick }) {
   const navigation = useNavigate();
+  console.log(activeMenuItem);
+
   const user = {
     name: "Trần Thị Hạnh",
     email: "tranthihanh@gmail.com",
@@ -18,10 +23,10 @@ function Sidebar({ activeMenuItem, onMenuItemClick }) {
     avatar: avatar,
   };
   const menuItems = [
-    { id: "account", icon: profileCircle, label: "Tài khoản" },
-    { id: "orders", icon: receipt, label: "Đơn hàng" },
-    { id: "favorites", icon: heartIcon, label: "Yêu thích" },
-    { id: "logout", icon: exportIcon, label: "Đăng xuất" },
+    { id: "account", icon: profileCircle, focusIcon: userFocus, label: "Tài khoản" },
+    { id: "orders", icon: receipt, focusIcon: receiptFocus, label: "Đơn hàng" },
+    { id: "favorites", icon: heartIcon, focusIcon: heartFocus, label: "Yêu thích" },
+    { id: "logout", icon: exportIcon, focusIcon: "", label: "Đăng xuất" },
   ];
   const handleClick = (id) => {
     if (id === "logout") {
@@ -30,6 +35,8 @@ function Sidebar({ activeMenuItem, onMenuItemClick }) {
       navigation("/");
       return;
     }
+    console.log(id);
+
     onMenuItemClick(id);
     navigation(`/me/${id}`);
   };
@@ -49,14 +56,13 @@ function Sidebar({ activeMenuItem, onMenuItemClick }) {
             <button
               key={item.id}
               onClick={() => handleClick(item.id)}
-              className={`flex gap-4 p-2 w-full text-left rounded-3xl transition-colors ${
-                activeMenuItem === item.id
-                  ? "text-rose-500 font-semibold"
-                  : "hover:bg-rose-50"
-              }`}
+              className={`flex gap-4 p-2 w-full text-left rounded-3xl transition-colors ${activeMenuItem === item.id
+                ? "text-[#FF5959] font-semibold"
+                : "hover:bg-rose-50"
+                }`}
             >
               <img
-                src={item.icon}
+                src={activeMenuItem === item.id ? item.focusIcon : item.icon}
                 alt=""
                 className="object-contain shrink-0 aspect-square w-[30px]"
               />

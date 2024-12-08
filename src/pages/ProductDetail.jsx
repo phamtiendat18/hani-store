@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import QuantitySelector from "../components/QuantitySelecter";
 import Header from "../components/Header";
 import sp1 from "../assets/images/sp1.png";
@@ -8,16 +8,22 @@ import cmt2 from "../assets/images/cmt2.png";
 import cmt3 from "../assets/images/cmt3.png";
 import paginate from "../assets/images/paginate.png";
 import heart from "../assets/images/heart.png";
+import like from "../assets/images/like.png";
+import chat from "../assets/images/chat.png";
 import messages from "../assets/images/messages.png";
 import img1 from "../assets/images/img-prod-1.png";
 import img2 from "../assets/images/image2.png";
 import img3 from "../assets/images/image3.png";
 import img4 from "../assets/images/image4.png";
-import { notification } from "antd";
+import { Modal, notification } from "antd";
 import Product from "../components/Product";
 import Footer from "../components/Footer";
 
-export default function ProductDetail() {
+export default function ProductDetail({ isLike }) {
+  const [isFavorite, setIsFavorite] = useState(isLike);
+  const [size, setSize] = useState(false);
+  const [color, setColor] = useState("");
+  const [open, setOpen] = useState(false);
   return (
     <div>
       <Header />
@@ -28,20 +34,20 @@ export default function ProductDetail() {
           </div>
           <div className="pl-[21px] flex flex-col gap-[25px]">
             <div>Áo ren 2 dây croptop phối viền đính nơ</div>
-            <div className="border border-[#FF5959] rounded-[40px] w-[90px] h-[40px] flex justify-center items-center">
+            <button className={`border border-[#FF5959] rounded-[40px] w-[90px] h-[40px] flex justify-center items-center ${color && "bg-[#FF5959] text-white"}`} onClick={() => setColor(!color)}>
               Kem 01
-            </div>
+            </button>
             <div className="flex gap-[30px]">
-              <div className="border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center">
+              <div className={`border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center ${size === "s" && "bg-[#FF5959] text-white"}`} onClick={() => setSize("s")}>
                 S
               </div>
-              <div className="border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center">
+              <div className={`border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center ${size === "m" && "bg-[#FF5959] text-white"}`} onClick={() => setSize("m")}>
                 M
               </div>
-              <div className="border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center">
+              <div className={`border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center ${size === "l" && "bg-[#FF5959] text-white"}`} onClick={() => setSize("l")}>
                 L
               </div>
-              <div className="border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center">
+              <div className={`border border-[#FF5959] rounded-[40px] w-[55px] h-[40px] flex justify-center items-center ${size === "xl" && "bg-[#FF5959] text-white"}`} onClick={() => setSize("xl")}>
                 XL
               </div>
             </div>
@@ -140,11 +146,17 @@ export default function ProductDetail() {
               </button>
             </div>
           </div>
-          <img src={heart} className="absolute right-[5px]" alt="" />
+          <img
+            src={isFavorite ? like : heart}
+            className="absolute right-[5px] w-[25px]"
+            alt=""
+            onClick={() => setIsFavorite(!isFavorite)}
+          />
           <img
             src={messages}
             className="absolute right-[-40px] bottom-[-40px]"
             alt=""
+            onClick={() => setOpen(true)}
           />
         </div>
         <div>
@@ -243,6 +255,9 @@ export default function ProductDetail() {
             />
           </div>
         </div>
+        <Modal open={open} onCancel={() => setOpen(false)} footer={[]} closable={false} className="custom-modal">
+          <img src={chat} alt="" />
+        </Modal>
       </div>
       <Footer />
     </div>

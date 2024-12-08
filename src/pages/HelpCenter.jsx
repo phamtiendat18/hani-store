@@ -6,7 +6,7 @@ import { Button } from "antd";
 export default function HelpCenter() {
   return (
     <div>
-      <Header />
+      <Header page={"help"} />
       <div className="px-[100px] py-[14px]">
         <h2 className="text-[20px] font-semibold text-[#FF5959]">
           Trung tâm trợ giúp
@@ -20,7 +20,8 @@ export default function HelpCenter() {
           <div class="relative">
             <input
               type="text"
-              class="w-full h-[60px] bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-[#FF5959] rounded-[99px] py-2 px-10 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              placeholder="Nhập từ khóa hoặc nội dung cần tìm"
+              class="w-full h-[60px] bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-[#FF5959] rounded-[99px] py-2 px-10 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
             />
 
             <button

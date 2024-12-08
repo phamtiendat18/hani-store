@@ -162,10 +162,10 @@ const Cart = () => {
 
   return (
     <div>
-      <Header />
+      <Header page={"cart"} />
       <div className=" min-h-screen mb-[40px] mx-[100px]">
         <div className="w-fit flex flex-col items-center mb-[45px] mt-[34px] m-auto">
-          <h2 className="uppercase text-[#E45C81] font-medium text-[32px] mb-[10px]">
+          <h2 className=" font-semibold text-[24px] mb-[10px]">
             Giỏ hàng
           </h2>
         </div>

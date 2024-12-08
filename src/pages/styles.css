@@ -162,3 +162,8 @@
   font-size: 16px !important;
   font-weight: 500 !important;
 }
+
+
+.custom-modal .ant-modal-content {
+  width: fit-content !important;
+}

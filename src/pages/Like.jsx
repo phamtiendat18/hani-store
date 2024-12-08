@@ -59,7 +59,7 @@ const products = [
 ];
 
 export default function Like() {
-  const [activeMenuItem, setActiveMenuItem] = useState("account");
+  const [activeMenuItem, setActiveMenuItem] = useState("favorites");
   const user = {
     name: "Trần Thị Hạnh",
     email: "tranthihanh@gmail.com",

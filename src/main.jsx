@@ -22,6 +22,7 @@ import Like from "./pages/Like.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Login from "./pages/Login.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import NewsDetail from "./pages/NewsDetail.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: "/product-detail",
     element: <ProductDetail />,
+  },
+  {
+    path: "/news-detail",
+    element: <NewsDetail />,
   },
   {
     path: "/me/account",

@@ -1,28 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heart from "../assets/images/heart.png";
 import like from "../assets/images/like.png";
 
 export default function Product({ image, title, price, isLike }) {
+  const [isFavorite, setIsFavorite] = useState(isLike);
   const navigation = useNavigate();
 
   return (
-    <div
-      className="w-[280px] h-[455px]"
-      onClick={() => navigation("/product-detail")}
-    >
+    <div className="w-[280px] h-[455px]">
       <div className="bg-white overflow-hidden hover:shadow-xl duration-300 flex flex-col justify-between">
         <div className="relative">
           <img
             src={image}
             alt={title}
             className="w-full h-[360px] object-cover"
+            onClick={() => navigation("/product-detail")}
           />
-          <div className="absolute top-4 right-4">
-            <img src={isLike ? like : heart} alt="" />
+          <div
+            className="absolute top-4 right-4"
+            onClick={() => setIsFavorite(!isFavorite)}
+          >
+            <img src={isFavorite ? like : heart} alt="" className="w-[25px]" />
           </div>
         </div>
-        <div className="px-1 py-2 h-full w-full flex flex-col justify-between">
+        <div
+          className="px-1 py-2 h-full w-full flex flex-col justify-between"
+          onClick={() => navigation("/product-detail")}
+        >
           <h3 className="text-[15px] font-[500] text-gray-800 text-left">
             {title}
           </h3>

@@ -1,28 +1,29 @@
 import { useState } from "react";
 import discount from "../assets/images/discount.png";
+import receiptFocus from "../assets/images/receiptFocus.png";
+import tickFocus from "../assets/images/tickFocus.png";
+import discountFocus from "../assets/images/discountFocus.png";
+
 
 function NotifySidebar({ textMenu, setTextMenu }) {
   const menuItems = [
     {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/c7de0186622932d4b95d0b52a0af3972d1313956a950a903bdde5f068e22cf2e?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61",
+      icon: textMenu === "Tất cả" ? tickFocus : "https://cdn.builder.io/api/v1/image/assets/TEMP/c7de0186622932d4b95d0b52a0af3972d1313956a950a903bdde5f068e22cf2e?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61",
       text: "Tất cả",
-      className: `bg-white ${
-        textMenu === "Tất cả" && "text-rose-500 font-semibold"
-      }`,
+      className: `bg-white ${textMenu === "Tất cả" && "text-main font-semibold"
+        }`,
     },
     {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5e568ecd6d8d9ed11fbac2720b4cfa48a38e6b5d72ac41e9023a21852d4c7303?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61",
+      icon: textMenu === "Đơn hàng" ? receiptFocus : "https://cdn.builder.io/api/v1/image/assets/TEMP/5e568ecd6d8d9ed11fbac2720b4cfa48a38e6b5d72ac41e9023a21852d4c7303?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61",
       text: "Đơn hàng",
-      className: `bg-white ${
-        textMenu === "Đơn hàng" && "text-rose-500 font-semibold"
-      }`,
+      className: `bg-white ${textMenu === "Đơn hàng" && "text-main font-semibold"
+        }`,
     },
     {
-      icon: discount,
+      icon: textMenu === "Khuyến mãi" ? discountFocus : discount,
       text: "Khuyến mãi",
-      className: `bg-white ${
-        textMenu === "Khuyến mãi" && "text-rose-500 font-semibold"
-      }`,
+      className: `bg-white ${textMenu === "Khuyến mãi" && "text-main font-semibold"
+        }`,
     },
   ];
 

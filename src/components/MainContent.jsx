@@ -32,8 +32,9 @@ function MainContent({ user, onImageSelect }) {
                   <span className="font-semibold min-w-[120px]">
                     {field.label}
                   </span>
-                  <div className="flex-1 p-2.5 border border-zinc-600 rounded-3xl">
+                  <div className="flex-1 p-2.5 border border-zinc-600 rounded-3xl relative">
                     {field.value}
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/123ecf9a98ed5536c5ed47adecbd17d80aab8ba5bea49e2384470020544dafc9?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61" className="absolute cursor-pointer right-4 top-[50%] translate-y-[-50%]" alt="" />
                   </div>
                 </div>
               ))}

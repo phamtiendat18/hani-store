@@ -93,21 +93,21 @@ export default function Home() {
   return (
     <div>
       <Header page={"home"} />
-      <Carousel autoplay dotPosition="bottom">
+      <Carousel autoplay dotPosition="bottom" style={{ marginTop: "0" }}>
         <div className="w-full">
-          <img src={banner1} className="w-full" alt="" />
+          <img src={banner1} className="w-full h-[480px] object-cover" alt="" />
         </div>
         <div className="w-full">
-          <img src={banner2} className="w-full" alt="" />
+          <img src={banner2} className="w-full h-[480px] object-cover" alt="" />
         </div>
         <div className="w-full">
-          <img src={banner3} className="w-full" alt="" />
+          <img src={banner3} className="w-full h-[480px] object-cover" alt="" />
         </div>
         <div className="w-full">
-          <img src={banner4} className="w-full" alt="" />
+          <img src={banner4} className="w-full h-[480px] object-cover" alt="" />
         </div>
         <div className="w-full">
-          <img src={banner5} className="w-full" alt="" />
+          <img src={banner5} className="w-full h-[480px] object-cover" alt="" />
         </div>
       </Carousel>
       <div className="mx-[181px] flex justify-between px-[70px] py-[26px] shadow-xl rounded-[50px] mt-[40px] border border-[#D7D2D2] mb-[41px]">

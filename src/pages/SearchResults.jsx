@@ -112,7 +112,7 @@ export default function SearchResults() {
         <div className="flex ">
           <Menu />
           <div className="ml-[20px]">
-            <div>
+            <div className="mb-[80px]">
               <span className="mr-[9px]">Lọc sản phẩm: </span>
               <Select
                 placeholder="Sắp xếp theo"

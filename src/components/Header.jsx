@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import user from "../assets/images/user.svg";
 import cart from "../assets/images/cart.svg";
+import isCart from "../assets/images/cart.png";
+import noti from "../assets/images/noti.png";
 import bell from "../assets/images/bell.svg";
 import info from "../assets/images/info.svg";
+import isInfo from "../assets/images/info.png";
 import ao from "../assets/images/ao2.png";
 import avatar from "../assets/images/avatar.png";
 import chanVay from "../assets/images/chan-vay2.png";
@@ -28,7 +31,7 @@ export default function Header({ page, namePage, isProd }) {
           to={"/"}
           className="flex items-center mb-5 text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0 block w-[14%] text-center"
         >
-          <div className="w-[62px]">
+          <div className="w-[90px]">
             <img src={logo} />
           </div>
         </Link>
@@ -50,7 +53,7 @@ export default function Header({ page, namePage, isProd }) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
                 fill="currentColor"
-                class="w-7 h-7 ml-1.5"
+                class="w-5 h-5 ml-1.5"
               >
                 <path
                   fill-rule="evenodd"
@@ -62,66 +65,63 @@ export default function Header({ page, namePage, isProd }) {
           </div>
         </div>
         <div className="flex w-[223px] justify-between">
-          <Link to={isLogin ? "/me/account" : "/login"} className="w-[22px]">
+          <Link to={isLogin ? "/me/account" : "/login"} className="w-[20px]">
             <img src={isLogin ? avatar : user} alt="" />
           </Link>
-          <Link to={"/cart"} className="w-[22px]">
-            <img src={cart} alt="" />
+          <Link to={"/cart"} className="w-[20px]">
+            <img src={page === "cart" ? isCart : cart} alt="" />
           </Link>
-          <Link to={"/notification"} className="w-[22px]">
-            <img src={bell} alt="" />
+          <Link to={"/notification"} className="w-[20px]">
+            <img src={page === "notify" ? noti : bell} alt="" />
           </Link>
-          <Link to={"/help"} className="w-[22px]">
-            <img src={info} alt="" />
+          <Link to={"/help"} className="w-[20px]">
+            <img src={page === "help" ? isInfo : info} alt="" />
           </Link>
         </div>
       </div>
-      <div className="flex flex-wrap items-center h-[70px] justify-between bg-[#FFEAEA] px-[150px]">
+      <div className="flex flex-wrap items-center h-[40px] justify-between bg-[#FFEAEA] px-[150px]">
         <Link
           to={"/"}
-          className={`${
-            page === "home" ? "text-[#FF5959]" : ""
-          } font-medium block w-[14%] text-[20px] text-center`}
+          className={`${page === "home" ? "text-[#FF5959]" : ""
+            } font-semibold block w-[14%] text-[20px] text-center hover:text-[#FF5959]`}
         >
           Trang chủ
         </Link>
         <Link
           to={"/hot-trend"}
-          className={`${
-            page === "hot" ? "text-[#FF5959]" : ""
-          } font-medium block w-[14%] text-[20px] text-center`}
+          className={`${page === "hot" ? "text-[#FF5959]" : ""
+            } font-semibold block w-[14%] text-[20px] text-center hover:text-[#FF5959]`}
         >
           Hot
         </Link>
         <Link
           to={"/products"}
-          className={`${
-            page === "products" ? "text-[#FF5959]" : ""
-          } font-medium block w-[14%] text-[20px] text-center`}
+          className={`${page === "products" ? "text-[#FF5959]" : ""
+            } font-semibold block w-[14%] text-[20px] text-center hover:text-[#FF5959]`}
         >
           Sản phẩm
         </Link>
         <Link
           to={"/about-us"}
-          className={`${
-            page === "about-us" ? "text-[#FF5959]" : ""
-          } font-medium block w-[14%] text-[20px] text-center`}
+          className={`${page === "about-us" ? "text-[#FF5959]" : ""
+            } font-semibold block w-[14%] text-[20px] text-center hover:text-[#FF5959]`}
         >
           Giới thiệu
         </Link>
         <Link
           to={"/blog"}
-          className={`${
-            page === "blog" ? "text-[#FF5959]" : ""
-          } font-medium block w-[14%] text-[20px] text-center`}
+          className={`${page === "blog" ? "text-[#FF5959]" : ""
+            } font-semibold block w-[14%] text-[20px] text-center hover:text-[#FF5959]`}
         >
           Blog
         </Link>
       </div>
       <div>
-        <h1 className="text-[18px] font-semibold text-center mt-[26px] mb-[22px]">
-          {namePage}
-        </h1>
+        {namePage && (
+          <h1 className="text-[18px] font-semibold text-center mt-[26px] mb-[22px]">
+            {namePage}
+          </h1>
+        )}
       </div>
       {isProd && (
         <div>

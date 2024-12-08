@@ -77,15 +77,7 @@ export default function MyOrder() {
                 href="/orders"
                 className="flex gap-3 self-start text-rose-500 items-center"
               >
-                <div className="basis-auto">Xem tất cả</div>
-                <div>
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4f2bbe2d80fe46f9a21d868195d4734abe38b0acaaa4d772b57877b6f840935e?placeholderIfAbsent=true&apiKey=d825a2d2e4c44d7c86e54f9c921e2d61"
-                    alt=""
-                    className="object-contain shrink-0 self-start aspect-[0.47] fill-rose-500 w-[7px] flex items-center"
-                  />
-                </div>
+                <div className="basis-auto">Xem tất cả &gt;</div>
               </a>
             </div>
             <div className="flex shrink-0 mt-3.5 ml-5 w-full rounded-3xl bg-zinc-300 h-[3px]" />

@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NewsFirst({ src, title, des }) {
+  const navigation = useNavigate()
   return (
-    <div className="flex mb-[30px]">
+    <div className="flex mb-[30px]" onClick={() => navigation("/news-detail")}>
       <div>
         <img src={src} className="min-w-[495px] h-[275px]" alt="" />
       </div>

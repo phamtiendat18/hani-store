@@ -9,7 +9,7 @@ function Notifications() {
   const [textMenu, setTextMenu] = useState("Tất cả");
   return (
     <div className="flex overflow-hidden flex-col bg-white">
-      <Header />
+      <Header page={"notify"} />
       <div className="flex flex-col self-center mt-5 w-full max-w-[1240px] max-md:max-w-full">
         <div className="max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col">

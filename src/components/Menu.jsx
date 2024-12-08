@@ -78,7 +78,7 @@ const Menu = () => {
       </div>
 
       <div>
-        <h2 className="text-[#F88CAD] text-[20px] font-bold text-lg mb-[20px]">
+        <h2 className=" text-center text-[20px] font-bold text-lg mb-[20px]">
           Size
         </h2>
         <ul>
