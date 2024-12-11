@@ -1,6 +1,9 @@
-import React from "react";
+import { Modal } from "antd";
+import React, { useState } from "react";
+import VerificationCode from "./VerificationCode";
 
 const Checkout = () => {
+  const [open, setOpen] = useState(false)
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
       <div className="container max-w-6xl bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -128,11 +131,14 @@ const Checkout = () => {
               </select>
             </div>
           </div>
-          <button className="mt-6 bg-red-500 text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-red-600 transition-all w-full">
+          <button className="mt-6 bg-red-500 text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-red-600 transition-all w-full" onClick={() => setOpen(true)}>
             Đặt hàng
           </button>
         </div>
       </div>
+      <Modal open={open}>
+        <VerificationCode />
+      </Modal>
     </div>
   );
 };

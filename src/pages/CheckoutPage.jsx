@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import AddressInput from "../components/AddressInput";
 import Footer from "../components/Footer";
 import OrderItem from "../components/OrderItem";
 import LocationSelect from "../components/LocationSelect";
 import { useNavigate } from "react-router-dom";
-import { notification } from "antd";
+import { Modal, notification } from "antd";
+import VerificationCode from "../components/VerificationCode";
 
 function CheckoutPage() {
+  const [open, setOpen] = useState(false)
   const navigation = useNavigate();
   const locationData = {
     city: {
@@ -135,8 +137,7 @@ function CheckoutPage() {
                   <button
                     className="overflow-hidden gap-2 self-center px-4 py-3 py-3.5 mt-5 mr-24 mb-8 max-w-full text-lg text-center text-white bg-[#FF5959] min-h-[50px] rounded-[200px] w-[180px]"
                     onClick={() => {
-                      notification.success({ message: "Đặt hàng thành công" });
-                      navigation("/");
+                      setOpen(true)
                     }}
                   >
                     Đặt hàng
@@ -147,6 +148,9 @@ function CheckoutPage() {
           </div>
         </div>
       </div>
+      <Modal title="Nhập mã xác nhận thanh toán" open={open} footer={null} onCancel={() => setOpen(false)}>
+        <VerificationCode />
+      </Modal>
       <Footer />
     </div>
   );

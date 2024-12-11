@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import heart from "../assets/images/heart.png";
 import like from "../assets/images/like.png";
 
-export default function Product({ image, title, price, isLike }) {
+import hot from "../assets/images/hot.png";
+import newIcon from "../assets/images/newIcon.png";
+
+export default function Product({ image, title, price, isLike, type }) {
   const [isFavorite, setIsFavorite] = useState(isLike);
   const navigation = useNavigate();
 
@@ -11,6 +14,9 @@ export default function Product({ image, title, price, isLike }) {
     <div className="w-[280px] h-[455px]">
       <div className="bg-white overflow-hidden hover:shadow-xl duration-300 flex flex-col justify-between">
         <div className="relative">
+          {type && <div className="absolute left-3 top-3 ">
+            <img src={type === "new" ? newIcon : hot} />
+          </div>}
           <img
             src={image}
             alt={title}

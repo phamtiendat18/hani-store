@@ -5,7 +5,7 @@ import user from "../assets/images/user.svg";
 import cart from "../assets/images/cart.svg";
 import isCart from "../assets/images/cart.png";
 import noti from "../assets/images/noti.png";
-import bell from "../assets/images/bell.svg";
+import bell from "../assets/images/bell.png";
 import info from "../assets/images/info.svg";
 import isInfo from "../assets/images/info.png";
 import ao from "../assets/images/ao2.png";

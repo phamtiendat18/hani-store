@@ -189,48 +189,56 @@ export default function Home() {
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
             <Product
               image={img2}
               price={"348,000 đ"}
               rating={5}
               title={"Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên"}
+              type={"new"}
             />
             <Product
               image={img1}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
             <Product
               image={img4}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
             <Product
               image={img3}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
             <Product
               image={img1}
               price={"348,000 đ"}
               rating={5}
               title={"Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên"}
+              type={"new"}
             />
             <Product
               image={img2}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
             <Product
               image={img4}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type={"new"}
             />
           </div>
         </div>
@@ -253,48 +261,56 @@ export default function Home() {
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
             <Product
               image={img3}
               price={"348,000 đ"}
               rating={5}
               title={"Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên"}
+              type="hot"
             />
             <Product
               image={img1}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
             <Product
               image={img2}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
             <Product
               image={img3}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
             <Product
               image={img1}
               price={"348,000 đ"}
               rating={5}
               title={"Đầm midi 2 dây nhún tùng phối ren ngực đính nơ 2 bên"}
+              type="hot"
             />
             <Product
               image={img4}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
             <Product
               image={img2}
               price={"348,000 đ"}
               rating={5}
               title={"Áo ren 2 dây croptop phối viền đính nơ"}
+              type="hot"
             />
           </div>
         </div>
