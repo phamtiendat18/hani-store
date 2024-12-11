@@ -23,6 +23,7 @@ import Notifications from "./pages/Notifications.jsx";
 import Login from "./pages/Login.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
 import NewsDetail from "./pages/NewsDetail.jsx";
+import Process from "./pages/Process.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "/me/orders",
     element: <MyOrder />,
+  },
+  {
+    path: "/me/orders/progress",
+    element: <Process />,
   },
   {
     path: "/me/favorites",

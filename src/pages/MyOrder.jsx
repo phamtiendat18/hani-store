@@ -7,6 +7,7 @@ import boxTime from "../assets/images/boxTime.png";
 import magicStar from "../assets/images/magicStar.png";
 import truckTick from "../assets/images/truckTick.png";
 import box from "../assets/images/box.png";
+import { useNavigate } from "react-router-dom";
 
 const orderStatuses = [
   {
@@ -55,6 +56,7 @@ const utilities = [
 ];
 
 export default function MyOrder() {
+  const navigation = useNavigate()
   const [activeMenuItem, setActiveMenuItem] = useState("orders");
   const handleMenuItemClick = (item) => {
     setActiveMenuItem(item);
@@ -87,7 +89,7 @@ export default function MyOrder() {
               <div className="flex justify-between px-[90px] max-w-full w-full ">
                 {orderStatuses.map((item, index) => (
                   <div key={index} className="flex flex-col items-center ">
-                    <div className="relative">
+                    <div className="relative" onClick={() => navigation("/me/orders/progress")}>
                       <img src={item?.icon} alt="" />
                       {item?.quantity !== 0 && (
                         <div className="absolute w-[25px] h-[25px] rounded-[99px] bg-[#FF3434] text-white top-[-3px] right-[-10px] index-10 text-center text-[14px]">

@@ -27,7 +27,7 @@ function VerificationCode() {
                     className="overflow-hidden gap-2 self-center px-4 py-2 mt-3 max-w-full text-lg font-semibold text-center text-white bg-[#FF5959] min-h-[45px] rounded-[200px] w-[150px] mb-5"
                     onClick={() => {
                         notification.success({ message: "Đặt đơn hàng thành công" })
-                        navigation("/")
+                        navigation("/me/orders/progress")
                     }}
                 >
                     Xác nhận
